@@ -1,0 +1,75 @@
+<Manager>:
+    Menu:
+        name: "menu"
+
+<DirectoryChooserPopup>:
+    title: "Escolha um Arquivo"
+    size_hint: 0.8, 0.8
+    auto_dismiss: True
+
+<Menu>:
+    FloatLayout:
+        canvas:
+            Color: 
+                rgba: 1, 1, 1, 1
+
+        Label:
+            text: "GERADOR DE RELATÓRIOS"
+            bold: True
+            font_size: "32sp"
+            size_hint: None, None 
+            size: self.texture_size 
+            pos_hint: {'center_x': 0.5, 'center_y': 0.95} 
+
+        ButtonMenu:
+            text: "Buscar Dados"
+            size_hint:0.2, 0.1
+            pos_hint: {'x': 0.75, 'y': 0.8}
+            on_release: root.open_directorychooser()
+
+        ButtonMenu:
+            text: "Gerar PDF"
+            size_hint:0.3, 0.1
+            pos_hint: {'x': 0.6, 'y': 0.08}
+            on_press: root.generate_pdf()      
+
+        TextInput:
+            id: desempenho_input
+            hint_text: "Digite o desempenho"  # Texto de dica dentro do campo
+            size_hint: 0.7, 0.07  # Tamanho relativo ao layout pai
+            pos_hint: {'center_x': 0.5, 'center_y': 0.7}  # Centraliza o TextInput no layout
+            font_size: "20sp"  # Tamanho da fonte
+            multiline: False  # Permite apenas uma linha de texto
+
+        TextInput:
+            id: inversor_input
+            hint_text: "Digite a marca e o modelo do inversor"  # Texto de dica dentro do campo
+            size_hint: 0.7, 0.07  # Tamanho relativo ao layout pai
+            pos_hint: {'center_x': 0.5, 'center_y': 0.6}  # Centraliza o TextInput no layout
+            font_size: "20sp"  # Tamanho da fonte
+            multiline: False  # Permite apenas uma linha de texto
+
+        TextInput:
+            id: status_input
+            hint_text: "Digite o status do inversor"  # Texto de dica dentro do campo
+            size_hint: 0.7, 0.07  # Tamanho relativo ao layout pai
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}  # Centraliza o TextInput no layout
+            font_size: "20sp"  # Tamanho da fonte
+            multiline: False  # Permite apenas uma linha de texto
+
+        TextInput:
+            id: parecer_input
+            hint_text: "Digite o parecer técnico"  # Texto de dica dentro do campo
+            size_hint: 0.7, 0.07  # Tamanho relativo ao layout pai
+            pos_hint: {'center_x': 0.5, 'center_y': 0.4}  # Centraliza o TextInput no layout
+            font_size: "20sp"  # Tamanho da fonte
+            multiline: False  # Permite apenas uma linha de texto  
+
+<ButtonMenu@ButtonBehavior+Label>:
+    canvas.before:
+        Color:
+            rgba: 0.1, 0.5, 0.7, 1   
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [20]
