@@ -104,7 +104,6 @@ class Menu(Screen):
         status_inserido = self.ids.status_input.text
         parecer_inserido = self.ids.parecer_input.text
         
-        # Continue a partir daqui para inserir o nome no PDF
         if hasattr(self, 'popup'):
             self.popup.pdf = fitz.open()
             self.popup.pagina = self.popup.pdf.new_page(width=595, height=842)
@@ -112,14 +111,14 @@ class Menu(Screen):
             rect = fitz.Rect(3, 190, 480, 710)
             self.popup.pagina.insert_image(rect, filename="C:/Users/Gustavo Alcântara/Desktop/Codigos/Automatização PDF/geracao_grafico.png")
 
-            # Aqui você insere o nome capturado no PDF
+            # Dados inseridos pelo usuário.
             self.popup.pagina.insert_text((389.5, 80.5), inversor_inserido, fontsize=9, fontname='helv', color=(0, 0, 0))
             self.popup.pagina.insert_text((380, 95), status_inserido, fontsize=9, fontname='helv', color=(0, 0, 0))
             self.popup.pagina.insert_text((440, 202), desempenho_inserido, fontsize=20, fontname='helv', color=(0, 0, 0))
             self.popup.pagina.insert_text((440, 202), desempenho_inserido, fontsize=20, fontname='helv', color=(0, 0, 0))
             self.popup.pagina.insert_text((22, 719), parecer_inserido, fontsize=16, fontname='helv', color=(0.5, 0.5, 0.5))
 
-            # Insere os outros dados como antes
+            # Dados coletados do Excel.
             self.popup.pagina.insert_text((380, 66), self.popup.nome, fontsize=9, fontname='helv', color=(0, 0, 0))
             self.popup.pagina.insert_text((78, 202), str(self.popup.geracao_total), fontsize=20, fontname='helv', color=(0, 0, 0))
             self.popup.pagina.insert_text((270, 202), str(self.popup.economia), fontsize=20, fontname='helv', color=(0, 0, 0))
