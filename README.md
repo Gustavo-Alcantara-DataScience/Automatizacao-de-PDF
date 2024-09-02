@@ -44,6 +44,7 @@ Insira as informações desejadas (desempenho, inversor, status, parecer).
 ### Gere o PDF:
 
 Clique em "Gerar PDF" para criar o relatório. O PDF será salvo no diretório atual com o nome Relatório Mensal.pdf.
+
 # 📂 Estrutura do Projeto
 
 PDF Automatização.py: Arquivo principal que contém todo o código da aplicação.
@@ -51,6 +52,8 @@ PDF Automatização.py: Arquivo principal que contém todo o código da aplicaç
 ModeloSlide_v2.png: Imagem usada como modelo de fundo para o relatório PDF.
 
 geracao_grafico.png: Gráfico gerado automaticamente a partir dos dados do arquivo Excel.
+
+testv.kv: Arquivo Kivy com as propriedades funcionais e estéticas da interface gráfica.
 
 # 🎨 Personalização
 
