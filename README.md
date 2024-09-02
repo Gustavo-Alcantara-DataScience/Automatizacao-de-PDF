@@ -1,5 +1,5 @@
 # 📊 Gerador de Relatórios em PDF com Interface Gráfica
-Este projeto é um aplicativo desenvolvido em Python usando Kivy, Matplotlib e PyMuPDF (fitz), que permite selecionar um arquivo Excel, extrair dados específicos e gerar um relatório de geração de energia mensal em PDF com gráficos e informações personalizadas, mas pode ser adaptado para outras funções, se necessário.
+Este projeto é um aplicativo desenvolvido em Python usando Kivy, Matplotlib, Pandas e PyMuPDF (fitz), que permite selecionar um arquivo Excel, extrair dados específicos e gerar um relatório de geração de energia mensal em PDF com gráficos e informações personalizadas, mas pode ser adaptado para outras funções, se necessário.
 
 # 🌟 Funcionalidades
 - Seleção de Arquivo: O usuário pode selecionar um arquivo Excel através de um popup de seleção de arquivos.
