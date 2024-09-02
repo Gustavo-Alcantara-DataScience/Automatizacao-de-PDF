@@ -12,10 +12,10 @@ from kivy.uix.filechooser import FileChooserIconView
 class DirectoryChooserPopup(Popup):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.selected_file = None  # Variável para armazenar o arquivo selecionado
+        self.selected_file = None  # Variável para armazenar o arquivo selecionado.
         current_path = os.getcwd()
-        self.filechooser = FileChooserIconView(path=current_path, dirselect=False)
-        self.filechooser.bind(on_submit=self.on_selection)
+        self.filechooser = FileChooserIconView(path=current_path, dirselect=False) # Inicializa na interface gráfica o popup para escolha de arquivo.
+        self.filechooser.bind(on_submit=self.on_selection) # Linka o arquivo escolhido com o def "on_selection" que vem logo abaixo no código.
         self.add_widget(self.filechooser)
 
     def on_selection(self, filechooser, selection, touch):
@@ -23,14 +23,14 @@ class DirectoryChooserPopup(Popup):
             selected_directory = selection[0]
             print(f'Diretório selecionado: {selected_directory}')
             self.dismiss()
-            df = pd.read_excel(selected_directory, header=None)  # Leitura do arquivo
+            df = pd.read_excel(selected_directory, header=None)  # Leitura do arquivo.
 
-            nome = df.iloc[0]
+            nome = df.iloc[0] # Coleta a linha que contém o nome do cliente.
             nome = nome[0]
-            self.nome = nome.split("Relatório mensal")[0]
+            self.nome = nome.split("Relatório mensal")[0] # Extrai do texto apenas o nome do cliente.
 
-            data = df.iloc[3]
-            data = data[0]
+            data = df.iloc[3] # Extrai a linha que contém o mês analisado.
+            data = data[0] # Extrai da linha que contém o mês analisado apenas o mês que está em formato de número (ex: 07, que representa o mês de JULHO).
 
             meses = {
                 "01": "JANEIRO",
@@ -48,8 +48,9 @@ class DirectoryChooserPopup(Popup):
             }
 
             mes_num = data.split("-")[1]
-            self.mes_nome = meses[mes_num]
+            self.mes_nome = meses[mes_num] # conversão de mês em número para texto através do dict acima.
 
+            # Dados coletados do arquivo Excel utilizando Pandas para inserir no pdf.
             self.dados_de_geracao = df.iloc[17].tolist()
             self.dados_de_geracao = self.dados_de_geracao[3:]  # geração diária
             self.geracao_total = self.dados_de_geracao.pop()  # geração total do mês
@@ -71,7 +72,6 @@ class DirectoryChooserPopup(Popup):
 
             self.fig, self.ax = plt.subplots()
             self.barras = plt.barh(range(1, len(self.dados_de_geracao) + 1), self.dados_de_geracao, color=(1, 0.5, 0))
-            plt.rcParams['font.serif'] = ['Times New Roman']
             plt.xlabel('Energia Gerada(kWh)')
             plt.ylabel('Dia')
             plt.xticks(range(1, len(self.dados_de_geracao), 5))
