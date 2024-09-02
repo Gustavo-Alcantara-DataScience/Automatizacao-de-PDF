@@ -84,7 +84,7 @@ class DirectoryChooserPopup(Popup):
 
             self.pdf = fitz.open()
             self.pagina = self.pdf.new_page(width=595, height=842)
-            self.pagina.insert_image(self.pagina.rect, filename="C:/Users/Gustavo Alcântara/Desktop/Codigos/Automatização PDF/ModeloSlide.png")
+            self.pagina.insert_image(self.pagina.rect, filename="C:/Users/Gustavo Alcântara/Desktop/Codigos/Automatização PDF/ModeloSlide_v2.png")
             rect = fitz.Rect(3, 190, 480, 710)
             self.pagina.insert_image(rect, filename="C:/Users/Gustavo Alcântara/Desktop/Codigos/Automatização PDF/geracao_grafico.png")
 
@@ -108,7 +108,7 @@ class Menu(Screen):
         if hasattr(self, 'popup'):
             self.popup.pdf = fitz.open()
             self.popup.pagina = self.popup.pdf.new_page(width=595, height=842)
-            self.popup.pagina.insert_image(self.popup.pagina.rect, filename="C:/Users/Gustavo Alcântara/Desktop/Codigos/Automatização PDF/ModeloSlide.png")
+            self.popup.pagina.insert_image(self.popup.pagina.rect, filename="C:/Users/Gustavo Alcântara/Desktop/Codigos/Automatização PDF/ModeloSlide_v2.png")
             rect = fitz.Rect(3, 190, 480, 710)
             self.popup.pagina.insert_image(rect, filename="C:/Users/Gustavo Alcântara/Desktop/Codigos/Automatização PDF/geracao_grafico.png")
 
